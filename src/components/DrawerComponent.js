@@ -9,6 +9,7 @@ import {
   Link,
   Flex,
 } from '@chakra-ui/react';
+import { Link as RouterLink } from 'react-router-dom';
 
 const DrawerComponent = ({ isOpen, onClose, btnRef }) => {
   return (
@@ -23,12 +24,17 @@ const DrawerComponent = ({ isOpen, onClose, btnRef }) => {
 
       <DrawerContent>
         <DrawerCloseButton />
-        <DrawerHeader>Chakra</DrawerHeader>
+        <DrawerHeader>Aphrx</DrawerHeader>
 
         <DrawerBody>
           <Flex flexDirection="column">
-            <Link mb="5">About</Link>
-            <Link>More Apps</Link>
+            <RouterLink to="/" onClick={onClose}>Home</RouterLink>
+            <br />
+            <RouterLink to="/about" onClick={onClose}>About</RouterLink>
+            <br />
+            <RouterLink to="/products" onClick={onClose}>Products</RouterLink>
+            <br />
+            <RouterLink to="/converter" onClick={onClose}>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Converter</RouterLink>
           </Flex>
         </DrawerBody>
       </DrawerContent>

@@ -1,6 +1,6 @@
 import {
   Box,
-  Button,
+  Container,
   Flex,
   Img,
   Spacer,
@@ -8,11 +8,14 @@ import {
   useMediaQuery,
 } from '@chakra-ui/react';
 import React from 'react';
-import chakraHero from '../assets/chakraHero.jpg';
 
-const Hero = () => {
+const Hero = ({ title, body, image}) => {
   const [isLargerThanLG] = useMediaQuery('(min-width: 62em)');
   return (
+    <Container
+    alignItems="center"
+    maxW='container.xl'
+    >
     <Flex
       alignItems="center"
       w="full"
@@ -22,22 +25,20 @@ const Hero = () => {
       justifyContent="space-between"
       flexDirection={isLargerThanLG ? 'row' : 'column'}
     >
-      <Box mr={isLargerThanLG ? '6' : '0'} w={isLargerThanLG ? '60%' : 'full'}>
+      <Box mr={isLargerThanLG ? '6' : '0'} w={isLargerThanLG ? '60%' : 'full'} align={isLargerThanLG ? 'left':'center'}>
         <Text
           fontSize={isLargerThanLG ? '5xl' : '4xl'}
           fontWeight="bold"
           mb="4"
         >
-          {' '}
-          Chakra UI Sample
+          { title }
         </Text>
 
         <Text mb="6" fontSize={isLargerThanLG ? 'lg' : 'base'} opacity={0.7}>
-          Sample Code for the blog article React MUI Components - Learn by Coding. The article explains how to code from scratch all components: 
-          navBar, hero section, app features, contact, and footer. 
+          { body } 
         </Text>
 
-        <Button
+        {/* <Button
           w="200px"
           colorScheme="blue"
           variant="solid"
@@ -50,7 +51,7 @@ const Hero = () => {
             }}
         >
           Read More
-        </Button>
+        </Button> */}
       </Box>
       <Spacer />
       <Flex
@@ -58,9 +59,10 @@ const Hero = () => {
         alignItems="center"
         justifyContent="center"
       >
-        <Img src={chakraHero} alt="Chakra UI" />
+        <Img src={image} alt="Chakra UI"/>
       </Flex>
     </Flex>
+    </Container>
   );
 };
 

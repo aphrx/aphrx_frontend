@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState } from "react";
 import {
   Text,
   Flex,
@@ -6,61 +6,60 @@ import {
   IconButton,
   useColorMode,
   useColorModeValue,
-  useMediaQuery,
-} from '@chakra-ui/react';
-import { MoonIcon, SunIcon } from '@chakra-ui/icons';
-import { FaAlignJustify } from 'react-icons/fa';
-import { Icon } from '@chakra-ui/react';
+  Container
+} from "@chakra-ui/react";
+import { MoonIcon, SunIcon } from "@chakra-ui/icons";
+import { FaAlignJustify } from "react-icons/fa";
+import { Icon } from "@chakra-ui/react";
 
 const Nav = ({ onOpen, ref }) => {
   const [scroll, setScroll] = useState(false);
   const { colorMode, toggleColorMode } = useColorMode();
-  const navBg = useColorModeValue('white', 'blackAlpha.200');
-  const [isLargerThanMD] = useMediaQuery('(min-width: 48em)');
+  const navBg = useColorModeValue("white", "blackAlpha.200");
 
   const changeScroll = () =>
     document.body.scrollTop > 80 || document.documentElement.scrollTop > 80
       ? setScroll(true)
       : setScroll(false);
 
-  window.addEventListener('scroll', changeScroll);
+  window.addEventListener("scroll", changeScroll);
 
   return (
+    <Flex 
+    bg={navBg}>
+    <Container
+    alignItems="center"
+    maxW='container.lg'>
     <Flex
       h="10vh"
       alignItems="center"
       p="6"
-      boxShadow={scroll ? 'base' : 'none'}
+      boxShadow={scroll ? "base" : "none"}
       position="sticky"
       top="0"
       zIndex="sticky"
       w="full"
-      bg={navBg}
+      // 
+      
     >
+
       <Text fontSize="xl" fontWeight="bold">
-        Chakra Sample
+        Aphrx
       </Text>
 
       <Spacer />
-      
+
       <Flex alignItems="center">
         <IconButton mr="10" w={6} h={6} p={5} onClick={toggleColorMode}>
-          {colorMode === 'light' ? <MoonIcon /> : <SunIcon />}
+          {colorMode === "light" ? <MoonIcon /> : <SunIcon />}
         </IconButton>
 
-        {isLargerThanMD ? (
-          <>
-            <a target="_blank" rel="noreferrer" href="https://appseed.us/apps/react/" fontSize="md" mr="10">
-              More Apps
-            </a>
-          </>
-        ) : (
-          <IconButton ref={ref} onClick={onOpen}>
-            <Icon as={FaAlignJustify} />
-          </IconButton>
-        )}
-
+        <IconButton ref={ref} onClick={onOpen}>
+          <Icon as={FaAlignJustify} />
+        </IconButton>
       </Flex>
+    </Flex>
+    </Container>
     </Flex>
   );
 };

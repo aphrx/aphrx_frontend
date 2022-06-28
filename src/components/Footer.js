@@ -6,19 +6,24 @@ const Footer = () => {
     <Flex
       w="full"
       bg="blackAlpha.50"
-      minHeight="20vh"
+      minHeight="12vh"
       flexDirection="column"
       alignItems="center"
       textAlign="center"
       justifyContent="center"
+      // position= "static"
+      bottom={0}
+      
     >
       <Text mb="3">
-        Provided by{' '}
-        <Link href="https://appseed.us" isExternal color="blue.500">
-          AppSeed
-        </Link>
+      Copyright © 2022. All Rights Reserved.
+
       </Text>
-      <Text opacity="0.5">Open-Source Sample - Buit with Chakra UI</Text>
+      <Text opacity="0.5">Made by Aphrx. Designed by {' '} 
+              <Link href="https://appseed.us" isExternal color="blue.500">
+          AppSeed
+        </Link>.
+        </Text>
     </Flex>
   );
 };

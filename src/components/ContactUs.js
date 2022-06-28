@@ -7,6 +7,7 @@ import {
   Button,
   useMediaQuery,
   useToast,
+  Container,
 } from '@chakra-ui/react';
 import React from 'react';
 
@@ -23,6 +24,9 @@ const ContactUs = () => {
     });
   };
   return (
+    <Container
+    alignItems="center"
+    maxW='container.xl'>
     <Flex
       w="full"
       minHeight="90vh"
@@ -68,6 +72,7 @@ const ContactUs = () => {
         </Button>
       </FormControl>
     </Flex>
+    </Container>
   );
 };
 
