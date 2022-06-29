@@ -31,7 +31,7 @@ const rejectStyle = {
   borderColor: "#ff1744",
 };
 
-const FileUpload = ({ api_url }) => {
+const FileUpload = ({ }) => {
   
   const [fileList, setFileList] = useState([])
 

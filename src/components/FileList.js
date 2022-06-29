@@ -1,14 +1,8 @@
-import { Flex, IconButton, Text } from "@chakra-ui/react";
-import { DownloadIcon } from "@chakra-ui/icons";
-
+import { Flex, Text } from "@chakra-ui/react";
 import React from "react";
 import PopoverButton from "./PopoverButton";
 
 const FileList = ({ file }) => {
-  const openTab = () => {
-    window.open(file.link, "_blank");
-  };
-
   return (
     <>
       <Flex
@@ -25,12 +19,7 @@ const FileList = ({ file }) => {
       >
         <Text align={"left"}>{file.path}</Text>
         <div>
-          {
-            // <IconButton w={6} h={6} p={5} onClick={openTab}>
-            //   <DownloadIcon />
-            // </IconButton>
-            <PopoverButton file={file}/>
-          }
+          <PopoverButton file={file} />
         </div>
       </Flex>
     </>
